@@ -31,6 +31,10 @@ app.get('/contact', (req, res) => {
   res.render('contact');
 });
 
+app.post('/contact/send-message', (req, res) => {
+  res.json(req.body);
+});
+
 app.get('/info', (req, res) => {
   res.render('info');
 });
