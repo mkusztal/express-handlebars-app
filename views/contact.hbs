@@ -9,7 +9,11 @@
     <p>You can't leave this fields empty!</p>
   </div>
 {{/if}}
-<form action='/contact/send-message' method='POST'>
+<form
+  action='/contact/send-message'
+  method='POST'
+  enctype='multipart/form-data'
+>
   <label>
     Your name:
     <input type='text' name='author' />
@@ -24,7 +28,7 @@
   </label>
   <label>
     Project design:
-    <input type='file' accept='.jpg .jpeg .png .gif' />
+    <input type='file' accept='.jpg, .jpeg, .png, .gif' />
   </label>
   <label>
     Message:
