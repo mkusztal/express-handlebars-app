@@ -6,6 +6,11 @@
     <p>File {{fileUpload}} has been saved!</p>
   </div>
 {{/if}}
+{{#if fileUpload}}
+  <div>
+    <img src='/uploads/{{fileUpload}}' />
+  </div>
+{{/if}}
 {{#if isError}}
   <div class='isError'>
     <p>You can't leave this fields empty!</p>

@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './uploads');
   },
-  fileupload: function (req, file, cb) {
+  filename: function (req, file, cb) {
     cb(null, file.originalname);
   },
 });
@@ -50,7 +50,7 @@ app.post('/contact/send-message', upload.single('image'), (req, res) => {
   const { author, sender, title, message } = req.body;
 
   if (author && sender && title && req.file && message) {
-    res.render('contact', { isSent: true, fileUpload: req.file.originalname });
+    res.render('contact', { isSent: true, fileName: req.file.originalname });
   } else {
     res.render('contact', { isError: true });
   }
