@@ -13,7 +13,7 @@ app.engine(
 
 // middleware
 app.use(express.static(path.join(__dirname, '/public')));
-app.use('uploads', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 app.use(express.urlencoded({ extended: false }));
 
 var storage = multer.diskStorage({
@@ -50,7 +50,7 @@ app.post('/contact/send-message', upload.single('image'), (req, res) => {
   const { author, sender, title, message } = req.body;
 
   if (author && sender && title && req.file && message) {
-    res.render('contact', { isSent: true, fileName: req.file.originalname });
+    res.render('contact', { isSent: true, fileUpload: req.file.originalname });
   } else {
     res.render('contact', { isError: true });
   }
